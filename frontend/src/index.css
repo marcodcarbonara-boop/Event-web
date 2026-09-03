@@ -1,0 +1,611 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+/* layout */
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+}
+body {
+  background: #f1f1f1;
+  margin: 0;
+  font-family: "Poppins";
+}
+header {
+  background: #fff;
+}
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header > .container > a {
+  color: #333;
+  text-decoration: none;
+  position: relative;
+  left: 0;
+}
+.pages{
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+/* homepage */
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 100px;
+}
+.event-details {
+  background: #fff;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+.event-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+.event-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.event-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
+
+/* new workout form */
+label, input, textarea {
+  display: block;
+}
+
+input, textarea {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 0.9em;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins", sans-serif;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 500;
+}
+
+form button:hover {
+  opacity: 0.9;
+}
+
+/* Messaggio di errore */
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+
+/* Evidenziatore rosso per input con errori */
+input.error, textarea.error {
+  border: 1px solid var(--error);
+}
+
+/* Delete */
+.event-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #ffebee;
+  color: #e53935;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  font-weight: 600;
+  border: 1px solid#ffcdd2; 
+  transition: all 0.2s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* mouse (Hover) */
+.event-details span:hover {
+  background: #e53935;
+  color: #ffffff;
+  border-color: #e53935;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.25);
+}
+
+/*  click (Active) */
+.event-details span:active {
+  transform: translateY(0);
+}
+
+input.error {
+  border: 1px solid var(--error);
+}
+
+/* navbar */
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav .user-menu {
+  display: flex ;
+  flex-direction: row ;
+  align-items: center ;
+  gap: 20px ; 
+}
+nav .user-menu .nav-item {
+  position: static;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+nav .user-menu a.nav-item:hover {
+  color: var(--primary, #1aac83);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Distanza tra Login e Signup */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+nav button {
+  background: #fff;
+  color: #e53935;
+  border: 2px solid #ffcdd2; 
+  transition: all 0.2s ease-in-out;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 12px;
+}
+nav button:hover {
+  background: #e53935;
+  color: #ffffff;
+  border-color: #e53935;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(229, 57, 53, 0.25);
+}
+
+/* auth forms */
+form.signup, form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+}
+/* show password*/
+.passwordInputConteiner {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Fa in modo che l'input occupi tutto lo spazio ma lasci margine a destra per l'icona */
+.passwordInputConteiner input {
+  width: 100%;
+  padding-right: 40px; /* Spazio per non far sovrapporre il testo all'icona */
+  margin-bottom: 20px;
+}
+
+/* Stile dell'icona dell'occhio */
+.passwordInputConteiner .toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 38%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #777;
+  user-select: none;
+}
+
+.passwordInputConteiner .toggle-password:hover {
+  color: #333;
+}
+/* fine show password*/
+
+
+.interest-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid var(--primary, #1aac83);
+  background-color: transparent;
+  color: var(--primary, #1aac83);
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover quando l'utente NON partecipa ancora */
+.interest-btn:hover {
+  background-color: var(--primary, #1aac83);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(26, 172, 131, 0.25);
+}
+
+/* Stato ATTIVO (Utente che partecipa) */
+.interest-btn.active {
+  background-color: #b00029d7;
+  color: #ffffff;
+  border-color: #b00029;
+}
+
+.interest-btn.active:hover {
+  background-color: #db0404ce;
+  border-color: #e10505;
+  box-shadow: 0 4px 12px rgba(23, 150, 114, 0.3);
+}
+.interest-btn:disabled {
+  background-color: #e0e0e0;
+  border-color: #cccccc;
+  color: #888888;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/*roba Pannello di lato */
+
+.panel-content {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  max-width: 85vw;
+  height: 100vh;
+  background-color: #ffffff;
+  padding: 24px;
+  box-shadow: -4px 0 25px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  animation: slideIn 0.3s ease-out;
+  overflow-y: auto;
+}
+
+
+.panel-content h2 {
+  color: var(--primary, #1aac83);
+  margin-top: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+}
+
+.close-btn:hover {
+  color: #000;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+/* link maps*/
+.maps-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #1a73e8;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.maps-link:hover {
+  text-decoration: underline;
+}
+
+.maps-link .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/*chat */
+
+/* Layout Principale */
+.chat-page-container {
+  display: flex;
+  max-width: 1200px;
+  height: calc(100vh - 100px);
+  margin: 20px auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Sidebar Sinistra */
+.chat-sidebar {
+  width: 320px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #eaeaea;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-sidebar h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+}
+
+.chat-item {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.chat-item:hover {
+  background: #f0f4ff;
+  border-color: #007bff;
+}
+
+.chat-item.active {
+  background: #e7f0ff;
+  border-color: #007bff;
+}
+
+.chat-item-title {
+  display: block;
+  font-size: 0.95rem;
+  color: #1a1a1a;
+}
+
+.chat-item-location {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+/* Area di Chat Principale */
+.chat-main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+
+.chat-header {
+  padding: 16px 24px;
+  border-bottom: 1px solid #eaeaea;
+  background: #ffffff;
+}
+
+.chat-header h2 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #1a1a1a;
+}
+
+.chat-header-subtitle {
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+/* Lista Messaggi (Scrollabile) */
+.chat-content-body {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #fdfdfd;
+}
+
+/* Balloon dei Messaggi */
+.message-bubble {
+  max-width: 65%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-break: break-word;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-bubble.my-message {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: #ffffff;
+  border-bottom-right-radius: 4px;
+}
+
+.message-bubble.other-message {
+  align-self: flex-start;
+  background-color: #e9ecef;
+  color: #212529;
+  border-bottom-left-radius: 4px;
+}
+
+.message-sender {
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  opacity: 0.8;
+}
+
+/* Form di invio messaggi */
+.chat-input-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-top: 1px solid #eaeaea;
+  background: #ffffff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Campo di testo (prende tutto lo spazio disponibile) */
+.chat-input-form input {
+  flex: 1; /* Occupa tutto lo spazio rimanente */
+  padding: 12px 18px;
+  border: 1px solid #ced4da;
+  border-radius: 24px;
+  outline: none;
+  font-size: 0.95rem;
+}
+
+.chat-input-form input:focus {
+  border-color: #007bff;
+}
+
+/* Pulsante Invia compatto */
+.chat-input-form button {
+  flex: 0 0 auto; 
+  width: auto;
+  padding: 12px 24px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.chat-input-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Container principale della pagina Chat */
+.chat-page-container {
+  display: flex;
+  max-width: 1100px;
+  height: calc(100vh - 120px);
+  margin: 20px auto;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* Sidebar a Sinistra */
+.chat-sidebar {
+  width: 300px;
+  min-width: 300px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #eaeaea;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chat-tabs-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.chat-tab-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.chat-tab-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+/* Area di destra che racchiude la Chat */
+.chat-main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #888;
+  font-size: 1.1rem;
+}
+.message-sender{
+  cursor: pointer;
+}
