@@ -391,6 +391,7 @@ form.signup, form.login {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  overflow-y: auto;
 }
 
 .chat-sidebar h3 {
@@ -436,6 +437,9 @@ form.signup, form.login {
   display: flex;
   flex-direction: column;
   background: #ffffff;
+  /*Aggiunta necessaria per far scorrere il corpo dei messaggi*/
+  height: 100%;
+  overflow: hidden;
 }
 
 .chat-header {

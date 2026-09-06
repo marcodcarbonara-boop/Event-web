@@ -73,11 +73,22 @@ const ChatPage = () => {
 
     if (user) {
       // Carica gli utenti (basta una volta)
-      fetch('http://localhost:4000/api/users', {
+      fetch('http://localhost:4000/api/user', {
         headers: { 'Authorization': `Bearer ${user.token}` }
       })
-        .then(res => res.json())
-        .then(data => setAllUsers(data))
+        .then(async (res) => {
+          if (!res.ok) throw new Error(`Errore HTTP: ${res.status}`);
+          return res.json();
+        })
+        .then(data => {
+          console.log("Utenti ricevuti:", data);
+          // Rimuove l'utente loggato dalla lista
+          if (Array.isArray(data)) {
+            const altriUtenti = data.filter(u => u._id !== user._id);
+            setAllUsers(altriUtenti);
+          }
+        })
+        .catch(err => console.error("Errore fetch utenti:", err)); 
 
       // Carica le conversazioni recenti
       fetchConversations()

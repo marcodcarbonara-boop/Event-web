@@ -58,7 +58,7 @@ const PrivateChat = ({ recipientUser }) => {
     if (!newMessage.trim() || !socket) return
 
     socket.emit('send_private_message', {
-      receiverId: recipientUser._id,
+      reciverId: recipientUser._id,
       text: newMessage
     })
 
