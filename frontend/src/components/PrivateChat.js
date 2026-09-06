@@ -32,7 +32,7 @@ const PrivateChat = ({ recipientUser }) => {
       // Aggiungi il messaggio solo se appartiene a questa conversazione
       const isFromCurrentChat = 
         msg.senderId?._id === recipientUser._id || 
-        msg.receiverId === recipientUser._id ||
+        msg.reciverId === recipientUser._id ||
         msg.senderId === recipientUser._id
 
       if (isFromCurrentChat) {

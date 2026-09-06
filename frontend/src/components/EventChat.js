@@ -42,12 +42,12 @@ const EventChat = ({ eventId , onSelectUser}) => {
       }
     }
 
-    socket.on('receive_message', handleReceiveMessage)
+    socket.on('receive_event_message', handleReceiveMessage)
 
     // Cleanup alla chiusura del componente
     return () => {
       socket.emit('leave_event', eventId)
-      socket.off('receive_message', handleReceiveMessage)
+      socket.off('receive_event_message', handleReceiveMessage)
     }
   }, [socket, eventId])
 
