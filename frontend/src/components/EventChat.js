@@ -12,7 +12,7 @@ const EventChat = ({ eventId , onSelectUser}) => {
   // 1. Carica lo storico messaggi via REST API
   useEffect(() => {
     const fetchMessages = async () => {
-      const response = await fetch(`http://localhost:4000/api/messages/event/${eventId}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/messages/event/${eventId}`, {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }

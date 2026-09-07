@@ -30,7 +30,7 @@ const EventForm =()=>{
 
         const event = {title, date, time, location,mapsUrl, description, maxParticipants}
 
-        const response = await fetch('http://localhost:4000/api/events', {
+        const response = await fetch('${process.env.REACT_APP_API_URL}/api/events', {
             method: 'POST',
             body:JSON.stringify(event),
             headers:{

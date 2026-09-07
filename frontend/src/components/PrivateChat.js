@@ -12,7 +12,7 @@ const PrivateChat = ({ recipientUser }) => {
   // 1. Carica i messaggi storici tra te e l'utente selezionato
   useEffect(() => {
     const fetchPrivateMessages = async () => {
-      const response = await fetch(`http://localhost:4000/api/messages/private/${recipientUser._id}`, {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/messages/private/${recipientUser._id}`, {
         headers: { 'Authorization': `Bearer ${user.token}` }
       })
       const json = await response.json()

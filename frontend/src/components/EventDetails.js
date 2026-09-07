@@ -14,7 +14,7 @@ const EventDetails=( {event})=>{
             return
         }
 
-        const response = await fetch('http://localhost:4000/api/events/' + event._id, {
+        const response = await fetch('${process.env.REACT_APP_API_URL}/api/events/' + event._id, {
             method:'DELETE',
             headers:{
                 'Authorization': `Bearer ${user.token}`
@@ -37,7 +37,7 @@ const EventDetails=( {event})=>{
             return
         }
         try{        
-            const response = await fetch(`http://localhost:4000/api/events/${event._id}/interest`,{
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/events/${event._id}/interest`,{
             method: 'PATCH',
             headers: {
                 'Authorization': `Bearer ${user.token}`

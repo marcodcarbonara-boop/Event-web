@@ -11,7 +11,7 @@ export const SocketContextProvider = ({ children }) => {
   useEffect(() => {
     if (user) {
       // Connessione al server Socket.io passando il token JWT
-      const newSocket = io('http://localhost:4000', {
+      const newSocket = io(process.env.REACT_APP_API_URL, {
         auth: {
           token: user.token
         }

@@ -18,15 +18,20 @@ const swaggerSpec = require('./swagger');
 const app= express()
 const server = http.createServer(app)
 
+const allowedOrigin = process.env.CLIENT_URL || "http://localhost:3000";
+
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST"]
+    origin: allowedOrigin,
+    methods: ["GET", "POST", "PATCH", "DELETE"]
   }
 })
 
 //middleware
-app.use(cors())
+app.use(cors({
+  origin: allowedOrigin,
+  credentials: true
+}))
 app.use(express.json())
 // Middleware per verificare il JWT al momento della connessione Socket
 io.use(socketAuth)
@@ -56,6 +61,8 @@ app.get('/', (req, res)=>{
 
 
 //conect to database
+const PORT = process.env.PORT || 4000;
+
 mongosse.connect(process.env.MONGO_URI)
     .then(() =>{
         //lisen for requiest
