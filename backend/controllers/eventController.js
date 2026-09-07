@@ -126,11 +126,11 @@ const toggleInterest = async (req, res) => {
     return res.status(404).json({ error: 'Evento non trovato' })
   }
 
-  // Controlla se l'utente si è già segnato
+  // Controlla se l'utente si è già loggato
   const alreadyInterested = event.interestedUsers.includes(userId)
 
   if (alreadyInterested) {
-    // Rimuove l'utente se si era già segnato
+    // Rimuove l'utente se si era già loggato
     event.interestedUsers = event.interestedUsers.filter(
       (uid) => uid.toString() !== userId.toString()
     )

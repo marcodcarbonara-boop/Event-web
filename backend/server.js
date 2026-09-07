@@ -11,6 +11,9 @@ const { Server } = require('socket.io')
 const socketAuth = require('./middleware/socketAuth')
 const socketController = require('./controllers/socketController')
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
+
 //express app
 const app= express()
 const server = http.createServer(app)
@@ -27,6 +30,9 @@ app.use(cors())
 app.use(express.json())
 // Middleware per verificare il JWT al momento della connessione Socket
 io.use(socketAuth)
+
+//swaggerUI per documentazione API
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
 app.use((req, res, next)=>{
