@@ -17,7 +17,7 @@ const Home=()=>{
     useEffect(()=>{
 
     const fetchEvent =async()=>{
-        const responce = await fetch('${process.env.REACT_APP_API_URL}/api/events',{
+        const responce = await fetch(`${process.env.REACT_APP_API_URL}/api/events`,{
             headers:{
                 'Authorization': `Bearer ${user.token}`
             }

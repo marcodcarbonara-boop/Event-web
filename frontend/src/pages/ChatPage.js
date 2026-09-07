@@ -17,7 +17,7 @@ const ChatPage = () => {
   // Recupera tutti gli eventi a cui l'utente è iscritto/interessato o che ha creato
   useEffect(() => {
     const fetchUserChats = async () => {
-      const response = await fetch('${process.env.REACT_APP_API_URL}/api/events', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/events`, {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }
@@ -59,7 +59,7 @@ const ChatPage = () => {
   useEffect(() => {
     const fetchConversations = async () => {
       try {
-        const resConvs = await fetch('${process.env.REACT_APP_API_URL}/api/messages/conversations', {
+        const resConvs = await fetch(`${process.env.REACT_APP_API_URL}/api/messages/conversations`, {
           headers: { 'Authorization': `Bearer ${user.token}` }
         })
         if (resConvs.ok) {
@@ -73,7 +73,7 @@ const ChatPage = () => {
 
     if (user) {
       // Carica gli utenti (basta una volta)
-      fetch('${process.env.REACT_APP_API_URL}/api/user', {
+      fetch(`${process.env.REACT_APP_API_URL}/api/user`, {
         headers: { 'Authorization': `Bearer ${user.token}` }
       })
         .then(async (res) => {
