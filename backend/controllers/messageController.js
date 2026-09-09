@@ -83,16 +83,14 @@ const getPrivateMessages = async (req, res) => {
 // Salva e invia un messaggio (può essere richiamato da rotte REST o helper Socket)
 const sendMessage = async (req, res) => {
   const senderId = req.user._id
-  const { reciverId, eventId, text, image, video } = req.body
+  const { reciverId, eventId, text } = req.body
 
   try {
     const message = await Message.create({
       senderId,
       reciverId: reciverId || null,
       eventId: eventId || null,
-      text,
-      image,
-      video
+      text
     })
 
     const populatedMessage = await message.populate('senderId', 'username')

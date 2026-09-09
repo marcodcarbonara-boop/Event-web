@@ -37,7 +37,6 @@ const swaggerOptions = {
                         _id: { type: "string", example: "665a1b2c3d4e5f6789012345" },
                         username: { type: "string", example: "mario_rossi" },
                         email: { type: "string", format: "email", example: "mario@email.com" },
-                        profilePic: { type: "string", example: "" },
                     },
                 },
               Event: {
@@ -68,8 +67,6 @@ const swaggerOptions = {
                         reciverId: { type: "string", nullable: true, example: "665a1b2c3d4e5f6789012346" },
                         eventId: { type: "string", nullable: true, example: null },
                         text: { type: "string", example: "Ciao, a che ora ci vediamo?" },
-                        image: { type: "string", example: "" },
-                        video: { type: "string", example: "" },
                         createdAt: { type: "string", format: "date-time" },
                     },
                 },
@@ -120,8 +117,6 @@ const swaggerOptions = {
                         reciverId: { type: "string", description: "ID destinatario per chat privata" },
                         eventId: { type: "string", description: "ID evento per chat di gruppo" },
                         text: { type: "string", example: "Tutto confermato per domani?" },
-                        image: { type: "string" },
-                        video: { type: "string" },
                     },
                 },
                 ErrorResponse: {

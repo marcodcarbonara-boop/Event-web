@@ -22,12 +22,6 @@ const messageSchema = new Schema({
     text:{
         type: String
     },
-    image:{
-        type: String, 
-    },
-    video:{
-        type: String 
-    },
 }, {timestamps: true})
 
 module.exports = mongoose.model('Message', messageSchema)

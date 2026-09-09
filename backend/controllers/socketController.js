@@ -13,14 +13,12 @@ const socketController = (io, socket) => {
     socket.leave(`event_${eventId}`)
   })
 
-  socket.on('send_event_message', async ({ eventId, text, image, video }) => {
+  socket.on('send_event_message', async ({ eventId, text }) => {
     try {
       const message = await Message.create({
         senderId: socket.userId,
         eventId,
-        text,
-        image,
-        video
+        text
       })
       const populatedMsg = await message.populate('senderId', 'username')
       // Trasmette il messaggio a tutti gli utenti nella stanza dell'evento
@@ -31,14 +29,12 @@ const socketController = (io, socket) => {
   })
 
   // 2. CHAT PRIVATA 1-A-1
-  socket.on('send_private_message', async ({ reciverId, text, image, video }) => {
+  socket.on('send_private_message', async ({ reciverId, text }) => {
     try {
       const message = await Message.create({
         senderId: socket.userId,
         reciverId,
-        text,
-        image,
-        video
+        text
       })
       const populatedMsg = await message.populate('senderId', 'username')
 
